@@ -1,13 +1,13 @@
-import PlaylistItem from '../PlaylistItem'
-import withLink from '../hoc/withLink'
+import React from 'react';
+import PlaylistItem from '../PlaylistItem';
+import withLink from '../hoc/withLink';
+import StyledPlaylistitems from '../styles/StyledPlaylistitems';
 
-import styled from 'styled-components'
+const PlaylistItemWithLink = withLink(PlaylistItem);
 
-const PlaylistItemWithLink = withLink(PlaylistItem)
-
-const PlaylistItems = ({ videos, active }) => (
+const Playlistitems = ({ videos, active }) => (
   <StyledPlaylistitems>
-    {videos.map((video) => (
+    {videos.map(video => (
       <PlaylistItemWithLink
         key={video.id}
         video={video}
@@ -18,32 +18,4 @@ const PlaylistItems = ({ videos, active }) => (
   </StyledPlaylistitems>
 )
 
-const StyledPlaylistitems = styled.div`
-  padding: 0 20px 0 20px;
-  overflow-y: auto;
-  height: 28vw;
-  max-height: 500px;
-
-  /* width */
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 2px;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-`
-
-export default PlaylistItems
+export default Playlistitems;

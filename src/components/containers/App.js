@@ -1,34 +1,18 @@
-import {
-  BrowserRouter,
-  Route,
-  Switch
-} from 'react-router-dom'
-
-import Player from './Player'
-
-import { createGlobalStyle } from 'styled-components'
+import React from 'react';
+import WbnPlayer from './WbnPlayer';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import GlobalStyle from '../styles/GlobalStyle';
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/react_videoplayer/">
+  <>
     <Switch>
-      <Route exact path='/' component={Player} />
-      <Route
-        exact
-        path='/:activeVideo'
-        component={Player}
-      />
+      <Route exact path="/" component={WbnPlayer} />
+      <Route exact path="/:activeVideo" component={WbnPlayer} />
     </Switch>
     <GlobalStyle />
+  </>
   </BrowserRouter>
 )
 
-const GlobalStyle = createGlobalStyle`
-*{
-  box-sizing: border-box;
-}
-body {
-  font-size: 10px;
-  font-family: 'Hind', sans-serif;
-}`
-
-export default App
+export default App;

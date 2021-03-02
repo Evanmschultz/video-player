@@ -1,38 +1,15 @@
-import PlaylistHeader from '../PlaylistHeader'
-import PlaylistItems from '../containers/PlaylistItems'
-import DarkMode from '../Darkmode'
+import React from "react";
+import PlaylistHeader from "../PlaylistHeader";
+import PlaylistItems from "../containers/PlaylistItems";
+import NightMode from "../Nightmode";
+import StyledPlaylist from "../styles/StyledPlaylist";
 
-import styled from 'styled-components'
-
-const Playlist = ({
-  videos,
-  active,
-  darkModeCallback,
-  darkMode
-}) => (
+const Playlist = ({ videos, active, nightModeCallback, nightMode }) => (
   <StyledPlaylist>
-    <DarkMode
-      darkModeCallback={darkModeCallback}
-      darkMode={darkMode}
-    />
+    <NightMode nightModeCallback={nightModeCallback} nightMode={nightMode} />
     <PlaylistHeader active={active} total={videos.length} />
     <PlaylistItems videos={videos} active={active} />
   </StyledPlaylist>
-)
+);
 
-const StyledPlaylist = styled.div`
-  box-flex: 1;
-  flex: 1 1 450px;
-  overflow: hidden;
-  color: white;
-  /* height: 0;
-  padding-top:50px;
-  padding-bottom: 36%; */
-
-  @media screen and (max-width: 1400px) {
-    width: 100%;
-    display: block;
-  }
-`
-
-export default Playlist
+export default Playlist;

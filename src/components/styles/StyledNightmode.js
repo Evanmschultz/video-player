@@ -1,24 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-const DarkMode = ({ darkMode, darkModeCallBack }) => (
-  <StyledDarkmode>
-    <span>Darkmode: </span>
-    <label className='switch'>
-      <input
-        type='checkbox'
-        checked={darkMode}
-        onChange={darkModeCallBack}
-      />
-      <span className='slider-round' />
-    </label>
-  </StyledDarkmode>
-)
-
-const StyledDarkmode = styled.div`
-  font-family: 'Hind', sans-serif;
+const StyledNightmode = styled.div`
+  font-family: "Hind", sans-serif;
   font-weight: 800;
   font-size: 1.6em;
-  color: ${(props) => props.theme.color};
+  color: ${props => props.theme.color};
   padding: 0;
   margin: 20px;
 
@@ -53,7 +39,7 @@ const StyledDarkmode = styled.div`
 
   .slider:before {
     position: absolute;
-    content: '';
+    content: "";
     height: 16px;
     width: 16px;
     left: 4px;
@@ -85,6 +71,6 @@ const StyledDarkmode = styled.div`
   .slider.round:before {
     border-radius: 50%;
   }
-`
+`;
 
-export default DarkMode
+export default StyledNightmode;
